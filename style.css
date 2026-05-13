@@ -1,0 +1,169 @@
+p{
+    font-size: 80px;
+}
+
+html, body {
+
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-color: #1e1e1e;
+    color: white;
+
+}
+
+
+/* PANTALLAS */
+
+#inicio,
+#jugadores {
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+
+/* TITULOS */
+
+h1 {
+
+    font-size: 120px;
+    margin: 0;
+
+}
+
+h2 {
+
+    font-size: 50px;
+    margin: 0;
+
+}
+
+
+/* INPUT */
+
+input {
+
+    width: 300px;
+
+    padding: 15px;
+
+    font-size: 25px;
+
+    border-radius: 10px;
+
+    border: none;
+
+}
+
+
+/* BOTONES */
+
+button {
+
+    padding: 15px 40px;
+
+    font-size: 30px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    cursor: pointer;
+
+}
+
+
+/* LISTA */
+
+#lista {
+
+    margin-top: 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+}
+
+
+/* CADA JUGADOR */
+
+.jugador {
+
+    width: 400px;
+
+    background-color: #2c2c2c;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.jugador p {
+
+    margin: 0;
+
+    font-size: 100px;
+
+}
+
+#elegirRoles{
+
+    margin-top: 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+
+}
+#elegirRoles h3{
+    font-size: 50px;
+}
+
+#roles p{
+    font-size: 100px;
+}
+
+#villager{
+    display: flex;
+}
+
+.tarjeta{
+    display: flex;
+}
+
+select{
+    height: 180px;
+    width: 80%;
+    font-size: 100px;
+}

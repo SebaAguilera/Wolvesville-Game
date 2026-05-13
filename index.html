@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="Wolf" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="inicio">
+        <h1>
+            WOLF
+        </h1>
+        <Button onclick="comenzar()">
+            INICIAR
+        </Button>
+    </div>
+
+
+    <div id="jugadores">
+        <h2>AGREGAR JUGADORES</h2>
+        <input type="text" id="nombre">
+
+        <button onclick="agregarJugador()">
+            Agregar
+        </button>
+
+        <div id="lista">
+
+        </div>
+
+        <button onclick="roles()">
+            SIGUIENTE
+        </button>
+    </div>
+
+    <div id="elegirRoles">
+        <h3>ELEGIR ROLES</h3>
+        <h3 id="cantidadJugadores"></h3>
+
+        <div id="roles">
+
+            <div id="aldeanoRoles">
+                <h3>ALDEANOS:</h3>
+                <section class="tarjeta">
+                    <p>Villager: </p>
+                    <div>
+                        <p id="villager"></p>
+                    </div>
+                    <button onclick="agregarRol('villager')">↑</button>
+                    <button onclick="eliminarRol('villager')">↓</button>
+                </section>
+
+                <section class="tarjeta">
+                    <p>Vidente: </p>
+                    <div>
+                        <p id="vidente"></p>
+                    </div>
+                    <button onclick="agregarRol('vidente')">↑</button>
+                    <button onclick="eliminarRol('vidente')">↓</button>
+                </section>
+
+                <section class="tarjeta">
+                    <p>Doctor: </p>
+                    <div>
+                        <p id="doctor"></p>
+                    </div>
+                    <button onclick="agregarRol('doctor')">↑</button>
+                    <button onclick="eliminarRol('doctor')">↓</button>
+                </section>
+
+                <section class="tarjeta">
+                    <p>Rencoroso: </p>
+                    <div>
+                        <p id="rencoroso"></p>
+                    </div>
+                    <button onclick="agregarRol('rencoroso')">↑</button>
+                    <button onclick="eliminarRol('rencoroso')">↓</button>
+                </section>
+
+                <section class="tarjeta">
+                    <p>Bruja: </p>
+                    <div>
+                        <p id="bruja"></p>
+                    </div>
+                    <button onclick="agregarRol('bruja')">↑</button>
+                    <button onclick="eliminarRol('bruja')">↓</button>
+                </section>
+
+                <section class="tarjeta">
+                    <p>aprendiz de vidente: </p>
+                    <div>
+                        <p id="apVidente"></p>
+                    </div>
+                    <button onclick="agregarRol('apVidente')">↑</button>
+                    <button onclick="eliminarRol('apVidente')">↓</button>
+                </section>
+
+                <section class="tarjeta">
+                    <p>Sacerdote: </p>
+                    <div>
+                        <p id="sacerdote"></p>
+                    </div>
+                    <button onclick="agregarRol('sacerdote')">↑</button>
+                    <button onclick="eliminarRol('sacerdote')">↓</button>
+                </section>
+
+                <section class="tarjeta">
+                    <p>GuardaEspaldas: </p>
+                    <div>
+                        <p id="guardaEspaldas"></p>
+                    </div>
+                    <button onclick="agregarRol('guardaEspaldas')">↑</button>
+                    <button onclick="eliminarRol('guardaEspaldas')">↓</button>
+                </section>
+
+                <section class="tarjeta">
+                    <p>Ninio travieso: </p>
+                    <div>
+                        <p id="ninioTravieso"></p>
+                    </div>
+                    <button onclick="agregarRol('ninioTravieso')">↑</button>
+                    <button onclick="eliminarRol('ninioTravieso')">↓</button>
+                </section>
+
+                <section class="tarjeta">
+                    <p>Prostituta: </p>
+                    <div>
+                        <p id="prostituta"></p>
+                    </div>
+                    <button onclick="agregarRol('prostituta')">↑</button>
+                    <button onclick="eliminarRol('prostituta')">↓</button>
+                </section>
+
+                <section class="tarjeta">
+                    <p>Abuela gruniona: </p>
+                    <div>
+                        <p id="abuela"></p>
+                    </div>
+                    <button onclick="agregarRol('abuela')">↑</button>
+                    <button onclick="eliminarRol('abuela')">↓</button>
+                </section>
+
+                <section class="tarjeta">
+                    <p>Borracho: </p>
+                    <div>
+                        <p id="borracho"></p>
+                    </div>
+                    <button onclick="agregarRol('borracho')">↑</button>
+                    <button onclick="eliminarRol('borracho')">↓</button>
+                </section>
+
+                <section class="tarjeta">
+                    <p>Pistolero: </p>
+                    <div>
+                        <p id="pistolero"></p>
+                    </div>
+                    <button onclick="agregarRol('pistolero')">↑</button>
+                    <button onclick="eliminarRol('pistolero')">↓</button>
+                </section>
+
+                <section class="tarjeta">
+                    <p>Ballestero: </p>
+                    <div>
+                        <p id="ballestero"></p>
+                    </div>
+                    <button onclick="agregarRol('ballestero')">↑</button>
+                    <button onclick="eliminarRol('ballestero')">↓</button>
+                </section>
+
+                <section class="tarjeta">
+                    <p>Escabador de tumbas: </p>
+                    <div>
+                        <p id="escabador"></p>
+                    </div>
+                    <button onclick="agregarRol('escabador')">↑</button>
+                    <button onclick="eliminarRol('escabador')">↓</button>
+                </section>
+
+                <section class="tarjeta">
+                    <p>Buffon: </p>
+                    <div>
+                        <p id="buffon"></p>
+                    </div>
+                    <button onclick="agregarRol('buffon')">↑</button>
+                    <button onclick="eliminarRol('buffon')">↓</button>
+                </section>
+
+                <section class="tarjeta">
+                    <p>Medium: </p>
+                    <div>
+                        <p id="medium"></p>
+                    </div>
+                    <button onclick="agregarRol('medium')">↑</button>
+                    <button onclick="eliminarRol('medium')">↓</button>
+                </section>
+
+                <section class="tarjeta">
+                    <p>Alcande: </p>
+                    <div>
+                        <p id="alcalde"></p>
+                    </div>
+                    <button onclick="agregarRol('alcalde')">↑</button>
+                    <button onclick="eliminarRol('alcalde')">↓</button>
+                </section>
+            </div>
+
+
+
+            <div id="lobosRoles">
+                <h3>LOBOS: </h3>
+
+            </div>
+
+            <button onclick="crearPartida()">CREAR PARTIDA</button>
+        </div>
+
+    </div>
+
+
+
+
+
+    <div id="comienzaPartida">
+        <section id="mostrarJugadorTurno">
+            <p id="nombreJugador"></p>
+
+            <div id="acciones"></div>
+
+            <button id="botonPrincipal">
+                Siguiente
+            </button>
+        </section>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
