@@ -1,0 +1,28 @@
+Villager: No hace nada el loco
+Vidente: Mira un rol
+Doctor: Proteje a alguien
+Rencoroso: Cuando muere se lleva a uno con el
+Bruja: Tiene 2 pociones, una salva a alguien si va a ser asesinado otra envenena a alguien
+
+Aprendiz de vidente: Si muere el vidente, toma su lugar
+Cura: tira agua bendita, si es un lobo lo matas, si no, mueres
+GuardaEspaldas: Protejes a alguien, tu mueres en su lugar
+Ninio travieso: Puedes intercambiar el rol de 2 personas 
+Prostituta: Duermes en casa de otra persona, si esta muere tu tambien, si te atacan y estas en otra casa sobrevives
+Abuela: Seleccionas a alguien para que no pueda votar
+Borracho: ESTAS BORRACHO, NO PUEDES HABLAR NUNCA
+Pistolero: Tienes 2 balas, tras disparar a alguien, revelas tu rol
+Ballestero: Tienes 2 flechas, si disparas a un aldeano, mueres
+Escabador de tumbas: Eliges alguien para cuando muera, tomar su rol
+buffon: Ganas si te echan
+Medium: Puedes revivir una persona
+Presidente: Revela tu rol, tus votos valen doble
+
+
+Lobo: A la noche se hace una kill
+Lobo solitario: Eres un lobo, solo puedes ganar siendo el unico lobo vivo
+Hombre maldito: Eres un aldeano, si mueres te cambias de bando a los lobos
+Lobo Mago: Convierte a un aldeano en lobo
+Lobo videte: descubres el rol de un aldeano
+Lobo alfa: Tu voto vale doble
+
