@@ -4,6 +4,7 @@
 document.getElementById("jugadores").style.display = "none"
 document.getElementById("elegirRoles").style.display = "none"
 document.getElementById("comienzaPartida").style.display = "none"
+document.getElementById("resolucionNoche").style.display = "none";
 
 
 
@@ -18,6 +19,15 @@ function comenzar(){
 }
 
 let nombres = JSON.parse(localStorage.getItem("nombres")) || [];
+for(let jugador of nombres){
+
+    if(jugador.vivo == undefined){
+
+        jugador.vivo = true;
+
+    }
+
+}
 
 mostrarNombres();
 
@@ -26,13 +36,14 @@ function agregarJugador() {
 
     let texto = document.getElementById("nombre").value;
 
-    nombres.push({
-        nombre: texto,
-        rol: null,
-        descripcion:"",
-    });
+    nombres.push(
+        new Jugador(texto, null)
+    );
 
-    localStorage.setItem("nombres", JSON.stringify(nombres));
+    localStorage.setItem(
+        "nombres",
+        JSON.stringify(nombres)
+    );
 
     mostrarNombres();
 
@@ -107,7 +118,8 @@ let rolesEnPartida = {
     buffon: [],
     medium: [],
     alcalde: [],
-    prostituta: []
+    prostituta: [],
+    lobo: [],
 }
 
 
@@ -190,7 +202,9 @@ class Rol {
     constructor(nombre, equipo,descripcion) {
         this.nombre = nombre;
         this.equipo = equipo;
-        this.descripcion= descripcion
+        this.descripcion= descripcion;
+        this.vivo=true;
+        this.marcadoParaMorir=false
     }
 
     accionNoche(usuario) {}
@@ -220,7 +234,7 @@ class Vidente extends Rol {
         super(
             "Vidente",
             "aldea",
-            "Mira el rol de un jugador"
+            "Mira el rol de un jugador",
         );
     }
 
@@ -399,6 +413,107 @@ class Alcalde extends Rol {
 
 }
 
+
+
+
+
+
+
+
+
+///ROL LOBOS////
+class Lobo extends Rol {
+
+    constructor() {
+
+        super(
+            "Lobo",
+            "lobos",
+            "Elimina a un jugador durante la noche"
+        );
+
+    }
+
+    accionNoche(usuario) {
+
+        let opciones = "";
+
+        for(let jugador of nombres) {
+
+            if(
+                jugador.nombre != usuario.nombre &&
+                jugador.vivo
+            ) {
+
+                opciones += `
+
+                    <option value="${jugador.nombre}">
+                        ${jugador.nombre}
+                    </option>
+
+                `;
+
+            }
+
+        }
+
+        document.getElementById("acciones").innerHTML = `
+
+            <p>
+                Elegí a quién querés eliminar
+            </p>
+
+            <select id="objetivoLobo">
+
+                ${opciones}
+
+            </select>
+
+            <button onclick="confirmarLobo()">
+                Matar
+            </button>
+
+        `;
+        
+
+    }
+
+}
+
+function confirmarLobo() {
+
+    let objetivo =
+        document.getElementById("objetivoLobo").value;
+
+    for(let jugador of nombres) {
+
+        if(jugador.nombre == objetivo) {
+
+            jugador.marcadoParaMorir = true;
+
+            alert(
+                jugador.nombre +
+                " fue eliminado"
+            );
+
+            break;
+
+        }
+
+    }
+
+    siguienteJugador();
+
+}
+
+
+
+
+
+
+
+
+
 function crearRol(nombreRol){
 
     switch(nombreRol){
@@ -456,6 +571,9 @@ function crearRol(nombreRol){
 
         case "alcalde":
             return new Alcalde();
+        
+        case "lobo":
+            return new Lobo();
 
         default:
             console.log("Rol no encontrado");
@@ -489,26 +607,43 @@ function mostrarJugador(){
 
     if(indiceJugador >= nombres.length){
 
-        document.getElementById("nombreJugador").innerHTML =
-        "Todos los roles fueron mostrados";
+    document.getElementById("nombreJugador").innerHTML =
+    "Todos los roles fueron mostrados. Acontecimientos durante la noche:";
 
-        document.getElementById("botonPrincipal").style.display =
-        "none";
+    document.getElementById("botonPrincipal").style.display =
+    "none";
 
-        return;
+    document.getElementById("resolucionNoche").style.display =
+    "flex";
+
+    resolucionNoche();
+
+    return;
+
+}
+
+    while(nombres[indiceJugador].vivo==false){
+        indiceJugador++;
     }
 
-    document.getElementById("nombreJugador").innerHTML =
+    if(nombres[indiceJugador].vivo==true){
+        document.getElementById("nombreJugador").innerHTML =
 
         "JUGADOR: " +
         nombres[indiceJugador].nombre;
 
 
+        document.getElementById("botonPrincipal").style.display =
+    "flex";
     document.getElementById("botonPrincipal").innerHTML =
     "Ver Rol";
 
     document.getElementById("botonPrincipal").onclick =
     detalleJugador;
+    }
+    
+
+    
 
 }
 
@@ -543,7 +678,36 @@ function siguienteJugador(){
     indiceJugador++;
 
     mostrarJugador();
+}
 
+
+function resolucionNoche(){
+    document.getElementById("comienzaPartida").style.display =
+"none";
+    document.getElementById("resolucionNoche").style.display = "flex";
+    document.getElementById("botonResolucion").onclick=siguienteRonda;
+    document.getElementById("resulicionNocheP").innerHTML =
+
+            "JUGADORES VIVOS: " 
+    for(let jugador of nombres){
+        if(jugador.marcadoParaMorir){
+
+    jugador.vivo = false;
+
+}
+            if(jugador.vivo == true){
+            document.getElementById("resulicionNocheP").innerHTML +=
+            jugador.nombre; + " "
+            }
+        }
+}
+
+function siguienteRonda(){
+    indiceJugador = 0;
+    document.getElementById("resolucionNoche").style.display = "none";
+    comenzarPartida;
+    document.getElementById("comienzaPartida").style.display = "flex"
+    comenzarPartida();
 }
 
 
